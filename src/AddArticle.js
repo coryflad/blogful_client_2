@@ -5,14 +5,16 @@ import './App.css'
 class AddArticleForm extends React.Component {
     onSubmitForm = (e) => {
         e.preventDefault()
-        this.props.onAddItem(e.target.itemToAdd.value)
+        const itemName = e.target.itemName.value
+        console.log(itemName)
+        this.props.onAddItem(itemName)
     }
 
     render() {
         return (
             <form onSubmit={this.onSubmitForm}>
                 <input
-                    name='itemToAdd'
+                    name='itemName'
                     placeholder='enter title'
                     type='text'
                 />

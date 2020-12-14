@@ -50,11 +50,12 @@ class App extends React.Component {
     // console.log('handleDeleteItem called', {item})
   }
 
-  handleAddItem = (itemName) => {
+  handleAddItem = (itemName ) => {
     const newItems = [
       ...this.state.articleItems,
       { title: itemName }
     ]
+    console.log(newItems)
     this.setState({
       articleItems: newItems
     })
