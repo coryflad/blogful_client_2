@@ -88,39 +88,36 @@ class App extends React.Component {
 
     else {
       this.setState({
-        params: data,
         formValidationError: ''
       })
-
-      console.log(this.state.params)
 
       const payload = { title, content, style }
 
       console.log(payload)
 
       fetch('http://localhost:8000/api/articles', {
-        method: "POST",
+        method: 'POST',
         body: JSON.stringify(payload),
         headers: {
-          "content-type": "application/json",
+          'content-type': 'application/json',
         },
       })
         .then((res) => {
           if (!res.ok) {
             return res.json().then((error) => {
-              throw error;
+              throw error
             });
           }
-          return res.json();
+          return res.json()
         })
         .then((data) => {
           console.log(data)
-          alert('Article added!');
+          alert('Article added!')
         })
 
         .catch((error) => {
-          this.setState({ appError: error });
-        });
+          this.setState({ appError: error })
+        })
     }
 
   }
